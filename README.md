@@ -54,34 +54,42 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `title_only`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** A comment that recommends one or more anime or manga titles without explaining why.
 
 **Example 1:**
->
+> A Silent Voice
 
 **Example 2:**
->
+> Hikaru no Go for me
+
+### `personal_experience`
+
+**Definition:** A comment that recommends anime or manga by explaining how it personally affected, helped, or motivated the commenter.
+
+**Example 1:**
+> Haikyuu was the anime that motivated me the most. The story is a great way to reflect on hard work vs talent and the motivation to be the best no matter your starting point.
+
+**Example 2:**
+> Attack on Titan literally changed me as a person and my outlook on life.
+
+### `reasoned_recommendation`
+
+**Definition:** A comment that recommends anime or manga by explaining its themes, tone, story, characters, or why it fits the request.
+
+**Example 1:**
+> Berserk is all about the endless struggle against internal and external darkness. It is famously dark and brutal though, but that does elevate its message of hope even higher.
+
+**Example 2:**
+> Vinland Saga and Attack on Titan both cover the complexity of human emotions, growth, community, and the battle against yourself while navigating different challenges.
+
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `personal_experience` and `reasoned_recommendation`
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-
+**The decision rule I used every time:** If a comment includes both personal experience and details about the anime, I label it `personal_experience` when the writer's own life, feelings, or motivation are the main reason for recommending it. Otherwise, I label it `reasoned_recommendation`.
 
 
 ---

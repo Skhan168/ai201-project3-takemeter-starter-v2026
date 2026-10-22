@@ -51,61 +51,46 @@ whether you hit them:
 
 ---
 
-## 1.
-
-<!-- Your criterion. It must name a number. -->
+## 1. Overall accuracy on the held-out test set is at least 0.70.
 
 
-
-**Why this target:**
+**Why this target:** I chose 0.70 because random guessing among three labels would be about 0.33, and 0.70 would be useful for sorting anime recommendation comments.
 
 
 
 ---
 
-## 2.
-
-<!-- Your criterion. -->
+## 2. Macro F1 on the held-out test set is at least 0.67.
 
 
-
-**Why this target:**
+**Why this target:** I chose 0.67 so the model must perform reasonably across all three labels instead of succeeding only on the most common label.
 
 
 
 ---
 
-## 3.
-
-<!-- Your criterion. -->
+## 3. `title_only` has an F1 score of at least 0.60.
 
 
-
-**Why this target:**
+**Why this target:** I chose 0.60 because title-only comments are short and have less context, making them harder to distinguish from brief recommendations.
 
 
 
 ---
 
-## 4.
-
-<!-- Your criterion. -->
+## 4. No label makes up more than 65% of `labels.csv`.
 
 
-
-**Why this target:**
+**Why this target:** I chose 65% to prevent the model from learning to predict one label most of the time.
 
 
 
 ---
 
-## 5.
-
-<!-- Your criterion. -->
+## 5. At least 80% agreement occurs when the same 20 cold-labelled comments are reviewed against my label definitions.
 
 
-
-**Why this target:**
+**Why this target:** I chose 80% because the labels need to be clear enough for consistent manual classification before training. The personal_experience and reasoned_recommendation boundary may still cause a small number of disagreements.
 
 
 
