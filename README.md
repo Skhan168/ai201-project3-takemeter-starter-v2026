@@ -39,8 +39,7 @@
 
 ## What This Does
 
-<!-- Your community, and what your classifier sorts posts into. Three or four
-     sentences. -->
+This project classifies anime and manga recommendation comments from an online anime discussion community. It sorts each comment into one of three categories: title_only, personal_experience, or reasoned_recommendation. The goal is to distinguish comments that only name a title from comments that explain why a person recommends it or describe how it affected them.
 
 
 
@@ -99,19 +98,19 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** Anime and manga recommendation comments collected from online discussion posts.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** I applied the three label definitions and the decision rule for the hardest boundary. I labelled 20 comments cold (without AI assistance). For the remaining comments, AI-assisted pre-labeling or review was used where noted in the `note` column; I reviewed the final labels and corrected them when needed.
+
 
 **Counts per label:**
 
 | Label | Count | Share |
-|---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+|---|---:|---:|
+| `reasoned_recommendation` | 81 | 40.5% |
+| `title_only` | 75 | 37.5% |
+| `personal_experience` | 44 | 22.0% |
+| **Total** | **200** | **100%** |
 
 **Three hard cases**
 
@@ -119,25 +118,25 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* My Hero Academia taught me that hard work can lead to greatness.
 >
-> *Could have been:*
+> *Could have been:* `personal_experience` or `reasoned_recommendation`
 >
-> *I chose, because:*
+> *I chose:* `personal_experience`, because the main point is what the commenter personally learned.
 
 **2.**
-> *The post:*
+> *The post:* Spy x Family
 >
-> *Could have been:*
+> *Could have been:* `title_only` or `reasoned_recommendation`
 >
-> *I chose, because:*
+> *I chose:* `title_only`, because it gives only a title and no explanation.
 
 **3.**
-> *The post:*
+> *The post:* Watch Frieren because its slow pacing and emotional story make the characters feel realistic.
 >
-> *Could have been:*
+> *Could have been:* `reasoned_recommendation` or `personal_experience`
 >
-> *I chose, because:*
+> *I chose:* `reasoned_recommendation`, because it recommends the title using specific qualities of the show rather than the writer's personal experience.
 
 ---
 
@@ -145,15 +144,13 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate `2e-05`, batch size 16, maximum length 128, and seed 42.
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** I did not change the default hyperparameters.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** 139 training examples, 31 validation examples, and 30 test examples. The test split had 12 `reasoned_recommendation` examples, 11 `title_only` examples, and 7 `personal_experience` examples. The small `personal_experience` test group means its F1 score may vary more between seeds.
 
 
 
@@ -170,17 +167,17 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Help checking whether borderline anime comments fit `personal_experience` or `reasoned_recommendation`.
+- *What came back:* Explanations of the difference between a comment focused on the writer's own experience and one focused on qualities of an anime.
+- *What I changed:* I used that guidance to review the comments myself and applied the decision rule in my taxonomy.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Help troubleshooting the CSV validation, Git commands, VS Code Jupyter kernel, and notebook errors.
+- *What came back:* Step-by-step troubleshooting guidance.
+- *What I changed:* I ran the commands and notebook cells myself, checked the output, and committed the generated project files.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** Some comments were AI-prelabeled or AI-reviewed, as indicated in the `note` column. I reviewed the labels and corrected them when needed before using the final dataset.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 

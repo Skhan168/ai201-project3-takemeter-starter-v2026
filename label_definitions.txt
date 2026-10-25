@@ -5,6 +5,6 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+title_only: A comment that recommends one or more anime or manga titles without explaining why.
+personal_experience: A comment that recommends anime or manga by explaining how it personally affected, helped, or motivated the commenter.
+reasoned_recommendation: A comment that recommends anime or manga by explaining its themes, tone, story, characters, or why it fits the request.
