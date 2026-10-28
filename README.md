@@ -148,6 +148,8 @@ This project classifies anime and manga recommendation comments from an online a
 
 **Settings:** 3 epochs, learning rate `2e-05`, batch size 16, maximum length 128, and seed 42.
 
+**Device used for training:** CPU (`torch 2.14.1+cpu`)
+
 **Anything I changed from the defaults, and why:** I did not change the default hyperparameters.
 
 **Split sizes:** 139 training examples, 31 validation examples, and 30 test examples. The test split had 12 `reasoned_recommendation` examples, 11 `title_only` examples, and 7 `personal_experience` examples. The small `personal_experience` test group means its F1 score may vary more between seeds.
