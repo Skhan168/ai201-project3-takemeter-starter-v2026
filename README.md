@@ -212,32 +212,28 @@ I predict that my fine-tuned model will perform better overall than the zero-sho
 
 ## Run Log — Before
 
-<!-- Five criteria across three seeds. The notebook's section 6 prints the
-     spread table; the Target and Verdict columns are yours. -->
+
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+|---|---|---:|---:|---:|---|
+| 1. Overall accuracy | ≥ 0.70 | 0.467 | 0.733 | 0.733 | MISSED |
+| 2. Macro F1 | ≥ 0.67 | 0.303 | 0.567 | 0.567 | MISSED |
+| 3. `title_only` F1 | ≥ 0.60 | 0.308 | 0.952 | 0.952 | MISSED |
+| 4. Largest label share in `labels.csv` | ≤ 65% | 40.5% | 40.5% | 40.5% | MET |
+| 5. Staff-label agreement | ≥ 80% | Pending | Pending | Pending | PENDING |
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | reasoned_recommendation | title_only | personal_experience |
+|---|---:|---:|---:|
+| **reasoned_recommendation** | 12 | 0 | 0 |
+| **title_only** | 9 | 2 | 0 |
+| **personal_experience** | 7 | 0 | 0 |
 
-**My biggest off-diagonal number, and what it means:**
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
+**My biggest off-diagonal number, and what it means:** Nine real `title_only` posts were predicted as `reasoned_recommendation`, while zero real `reasoned_recommendation` posts were predicted as `title_only`. This lopsided pattern means the model is over-predicting `reasoned_recommendation` when it should identify a title-only recommendation; the agreement report will help determine whether inconsistent labeling contributed to that boundary problem.
 
 
 

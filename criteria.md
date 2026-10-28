@@ -92,6 +92,9 @@ whether you hit them:
 
 **Why this target:** I chose 80% because the labels need to be clear enough for consistent manual classification before training. The personal_experience and reasoned_recommendation boundary may still cause a small number of disagreements.
 
+> **Revised in unit 6:** Agreement with staff labels is at least 80% on the 30 staff posts, labeled using the staff taxonomy.
+
+> **Why revised:** The original criterion named 20 cold-labelled comments but did not establish a second independently produced label set or a comparison procedure. The staff set provides a defined, independently labeled comparison on 30 matched posts.
 
 
 ---
