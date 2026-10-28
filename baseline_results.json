@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.5,
+    "f1_macro": 0.4777777777777778,
+    "per_label": {
+      "personal_experience": {
+        "precision": 0.6666666666666666,
+        "recall": 0.2857142857142857,
+        "f1": 0.4,
+        "support": 7
+      },
+      "reasoned_recommendation": {
+        "precision": 0.625,
+        "recall": 0.4166666666666667,
+        "f1": 0.5,
+        "support": 12
+      },
+      "title_only": {
+        "precision": 0.42105263157894735,
+        "recall": 0.7272727272727273,
+        "f1": 0.5333333333333333,
+        "support": 11
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Both cover the complexity of human emotions, growth, community, and the battle against yourself while navigating different challenges.",
+      "gold": "reasoned_recommendation",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "A lot of these have been said already, but I would recommend: A Place Further Than the Universe. This one features a young cast and looks childish on the surface, but it's one of my absolute favorite coming-of-age stories that I think should resonate with anyone of any age.",
+      "gold": "personal_experience",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "Kaiju No. 8",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Would you classify Promised Neverland as this? It's a reach, but your ask is very niche.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Jormungand",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Hell's Paradise",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "{Uma Musume: Pretty Derby - Beginning of a New Era}",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "For absolutely on the nose, Smoking Behind The Supermarket With You.",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Did anyone say Fullmetal Alchemist yet? It's silly, but it's so good.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Griffith from berserk is very motivational /s",
+      "gold": "title_only",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "Mobile Suit Gundam: The 500 pound gorilla of mecha anime. Gundam is a huge, sprawling franchise. The original series has some elements of shows that were clearly made for kids, but is well known for its very serious anti-war themes and meticulous hard sci-fi worldbuilding.",
+      "gold": "reasoned_recommendation",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "Here are my two recommendations. The Fable. Fable, an assassin who works in organized crime, has been raised to legendary status as a ruthless killer capable of murdering any man within six seconds. Six years after his debut, his boss fears that Fable has attracted too much attention from legal authorities, and he orders him to hide in Osaka for a year. Accompanied by his driver, who assumes the identity of his sister, Fable must act as a civilian and not murder anyone lest he and his partner lose their lives. Parasyte: The Maxim. All of a sudden, parasitic aliens descended upon Earth and quickly infiltrated humanity by burrowing into the brains of vulnerable targets. These beings acquire full control of their hosts and can morph into forms to feed on unsuspecting prey.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "I really like Handyman Saito in Another World",
+      "gold": "personal_experience",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Apothecary Diaries is amazing. It's beautiful and has interesting characters. It has a Sherlock Holmes vibe every now and then that I appreciate. I'm 55. I took a chance on Wind Breaker. It's not new, but it really has got me hooked. It is teenagers and fighting, but the characters actually grow and learn about themselves and life.",
+      "gold": "personal_experience",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Hikaru no Go for me",
+      "gold": "title_only",
+      "predicted": "personal_experience"
+    },
+    {
+      "text": "You have Akira, hugely acclaimed for his animation, watch it in Japanese for the lipsync.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "My Hero Academia is a very good anime because it taught me that if you try your best and work hard at something, you can achieve greatness. That is what Deku shows when he receives All Might's powers.",
+      "gold": "personal_experience",
+      "predicted": "personal_experience"
+    },
+    {
+      "text": "Skip and Loafer, You and I Are Polar Opposites, The Ramparts of Ice. The first two are on Crunchyroll; the last is a Netflix exclusive. The last two are by the same author. Really good in my opinion.",
+      "gold": "reasoned_recommendation",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "As an important heads up, if you are interested in watching Higurashi When They Cry, make sure to start with either the 2006 anime and its second half Kai, the original visual novel, or the manga adaptation. The 2020 anime Higurashi When They Cry: Gou is an anime-original sequel, not a remake. Don't accidentally start with Gou because it contains spoilers.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Clevatess",
+      "gold": "title_only",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "Try Pluto. It's a Sci-fi murder mystery political drama. It's really really good. And it's only 8 episodes long so it's not intimidating to dip into.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "I recommend the work of Masaaki Yuasa, particularly Tatami Galaxy and Ping Pong if you're looking for a series, or Lu Over the Wall if you want to check out his vibe with a movie first. The man has a talant with stories that tap into both the difficulties and the beauties of life.",
+      "gold": "reasoned_recommendation",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "Ranma 1/2 (Mappa Remake). This one might be a longshot since it focuses on high school kids, although the school setting is rarely used. It is a readaptation of the manga by Rumiko Takahashi, who is to romantic-comedy manga what Akira Toriyama is to battle shonen. Still set in 90's, barely past Showa-era Tokyo, it is first and foremost a comedy, but it draws in drama, action, and romance into a very unique mix. Season 3 is currently airing on Netflix. Mostly here because it is high quality and the 90's nostalgia might be appealing.",
+      "gold": "reasoned_recommendation",
+      "predicted": "title_only"
+    },
+    {
+      "text": "You are just older than I am. My absolute favorite anime of all time is Ghost in the Shell: Stand Alone Complex. It is futuristic sci-fi where people are cyborgs. It makes you really think about what it means to be human.",
+      "gold": "personal_experience",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Let This Grieving Soul Retire!",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Days with My Stepsister. It sounds like a joke, but it is a serious look at found family.",
+      "gold": "reasoned_recommendation",
+      "predicted": "reasoned_recommendation"
+    },
+    {
+      "text": "One piece was that anime that showed me no matter how many times you fail always get back up and that is how Luffy becomes of the strongest Pirate in the series ",
+      "gold": "personal_experience",
+      "predicted": "personal_experience"
+    },
+    {
+      "text": "Try: Way of the Househusband",
+      "gold": "title_only",
+      "predicted": "title_only"
+    },
+    {
+      "text": "You should try 86! Totally worth it, and it is my top recommendation. Still holding out for that season 2 announcement. It will happen someday!",
+      "gold": "personal_experience",
+      "predicted": "title_only"
+    },
+    {
+      "text": "Psycho pass, Ergo Proxy, Kingdom. Can\u2019t go wrong with any of these.",
+      "gold": "title_only",
+      "predicted": "title_only"
+    }
+  ]
+}

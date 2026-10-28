@@ -192,19 +192,17 @@ This project classifies anime and manga recommendation comments from an online a
      prints this table for you. -->
 
 | Measure | Baseline | Trained | Difference |
-|---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+|---|---:|---:|---:|
+| Overall accuracy | 0.500 | 0.467 | -0.033 |
+| Macro F1 | 0.478 | 0.303 | -0.175 |
+| F1 — `personal_experience` | 0.400 | 0.000 | -0.400 |
+| F1 — `reasoned_recommendation` | 0.500 | 0.600 | +0.100 |
+| F1 — `title_only` | 0.533 | 0.308 | -0.226 |
 
 **What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+I predict that my fine-tuned model will perform better overall than the zero-shot baseline because it trained on 200 anime recommendation comments using my three specific labels. I expect the biggest advantage to be on `reasoned_recommendation`, while `personal_experience` may remain difficult because it had the fewest examples.
 
-**What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
+**What the gap actually means:** My prediction was partly correct: fine-tuning improved `reasoned_recommendation` from 0.500 to 0.600 F1, but it did not improve the model overall. The zero-shot baseline had higher overall accuracy and macro F1 and performed better on `personal_experience` and `title_only`; the trained model completely missed `personal_experience` on this split, so my 200 labels and/or that label boundary need investigation.
 
 
 
