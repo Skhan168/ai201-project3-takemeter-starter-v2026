@@ -246,13 +246,13 @@ I predict that my fine-tuned model will perform better overall than the zero-sho
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.70 | MISSED | Seed 42 was 0.467, below 0.70, even though seeds 7 and 2024 reached 0.733. All three seeds must meet the target. |
+| 2 | Macro F1 | ≥ 0.67 | MISSED | The scores were 0.303, 0.567, and 0.567; every seed was below 0.67. |
+| 3 | `title_only` F1 | ≥ 0.60 | MISSED | Seed 42 scored 0.308, below 0.60, despite 0.952 on seeds 7 and 2024. |
+| 4 | Largest label share | ≤ 65% | MET | The largest label, `reasoned_recommendation`, is 40.5% of the dataset. |
+| 5 | Staff-label agreement | ≥ 80% | MET | I matched 30 of 30 staff-labelled posts, for 100% agreement. |
 
-**Diagnoses**
+Criteria 1–3 were missed. The most likely cause is limited and unstable training evidence rather than inconsistent manual labeling: across seeds, overall accuracy ranged from 0.467 to 0.733, and `title_only` F1 ranged from 0.308 to 0.952. In seed 42, the confusion matrix shows 9 true `title_only` comments predicted as `reasoned_recommendation`, identifying that boundary as the model's main error. My 30/30 (100%) agreement with staff labels supports the conclusion that I can apply an external taxonomy consistently; however, because that check uses the staff taxonomy rather than my anime taxonomy, it is supporting evidence rather than direct proof that my project labels have no ambiguity. I will test an improvement that gives the model clearer title-only examples.
 
 <!-- For each miss: the cause, and how you know. The four common causes are:
      too few examples for a label, a boundary you applied inconsistently, a
@@ -294,21 +294,20 @@ None. I matched the staff labels on all 30 posts.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** I increased training from 3 to 5 epochs to test whether additional passes over the training examples would improve performance, especially for short `title_only` comments.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** The before-run results were unstable across seeds and showed frequent confusion between `title_only` and `reasoned_recommendation`. I tested whether the model needed more training time before changing the taxonomy or inventing new data.
 
 ### Run Log — After
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.70 | 0.633 | 0.767 | 0.733 | MISSED |
+| 2. Macro F1 | ≥ 0.67 | 0.488 | 0.591 | 0.567 | MISSED |
+| 3. `title_only` F1 | ≥ 0.60 | 0.778 | 1.000 | 0.952 | MET |
+| 4. Largest label share | ≤ 65% | 40.5% | 40.5% | 40.5% | MET |
+| 5. Staff-label agreement | ≥ 80% | 100% | 100% | 100% | MET |
 
-**Did it help, and how do I know:**
+**Did it help, and how do I know:** Increasing training from 3 to 5 epochs helped on every reported overall measure. Accuracy improved from 0.467 to 0.633 for seed 42, from 0.733 to 0.767 for seed 7, and stayed at 0.733 for seed 2024. Macro F1 improved from 0.303 to 0.488 for seed 42, from 0.567 to 0.591 for seed 7, and stayed at 0.567 for seed 2024. However, the model still missed the 0.70 accuracy and 0.67 macro-F1 targets because seed 42 remained below both targets. I know this from comparing the before and after three-seed run logs.
+
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
@@ -318,15 +317,9 @@ None. I matched the staff labels on all 30 posts.
 ---
 
 ## What's Still Broken
+The model still misses the overall accuracy and macro-F1 targets because seed 42 remains below both thresholds after increasing training to five epochs. A next step would be to collect and manually review more real comments, especially `personal_experience` examples, because the seed-42 confusion matrix shows all 7 true `personal_experience` comments were predicted as `reasoned_recommendation`; I stopped after one controlled training change so I could measure its effect clearly.
 
-<!-- For each criterion still missed: what you'd do, and why you stopped. -->
-
-
-
-**The gap between what I meant my labels to capture and what the model
-learned:**
-<!-- Two sentences. Your confusion matrix is the evidence. -->
-
+**The gap between what I meant my labels to capture and what the model learned:** I intended `personal_experience` to capture recommendations centered on the writer's own feelings, motivation, or life impact, but the model often treated them as `reasoned_recommendation`. The confusion matrix shows it learned to recognize `title_only` much better after five epochs, but it still failed to separate personal experiences from general reasons for recommending a show.
 
 
 <!-- ═════════════════════════════════════════════════════════════════════
