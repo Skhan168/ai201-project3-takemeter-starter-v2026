@@ -179,6 +179,12 @@ This project classifies anime and manga recommendation comments from an online a
 - *What came back:* Step-by-step troubleshooting guidance.
 - *What I changed:* I ran the commands and notebook cells myself, checked the output, and committed the generated project files.
 
+**Moment 3**
+
+- *What I asked for:* Help interpreting the three-seed results, confusion matrices, and staff agreement report, and choosing one improvement to test.
+- *What came back:* AI identified confusion between `title_only` and `reasoned_recommendation`, noted that staff agreement does not directly validate my anime taxonomy, and suggested increasing training from 3 to 5 epochs.
+- *What I changed:* I changed the epoch setting, ran the three-seed experiment myself, and used the actual output to complete the after-run table. AI also helped draft the verdicts, diagnoses, and final reflection.
+
 **Pre-labelling disclosure:** Some comments were AI-prelabeled or AI-reviewed, as indicated in the `note` column. I reviewed the labels and corrected them when needed before using the final dataset.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
@@ -220,7 +226,7 @@ I predict that my fine-tuned model will perform better overall than the zero-sho
 | 2. Macro F1 | ≥ 0.67 | 0.303 | 0.567 | 0.567 | MISSED |
 | 3. `title_only` F1 | ≥ 0.60 | 0.308 | 0.952 | 0.952 | MISSED |
 | 4. Largest label share in `labels.csv` | ≤ 65% | 40.5% | 40.5% | 40.5% | MET |
-| 5. Staff-label agreement | ≥ 80% | Pending | Pending | Pending | PENDING |
+| 5. Staff-label agreement | ≥ 80% | 100% | 100% | 100% | MET |
 
 ### Confusion matrix
 
@@ -317,7 +323,7 @@ None. I matched the staff labels on all 30 posts.
 ---
 
 ## What's Still Broken
-The model still misses the overall accuracy and macro-F1 targets because seed 42 remains below both thresholds after increasing training to five epochs. A next step would be to collect and manually review more real comments, especially `personal_experience` examples, because the seed-42 confusion matrix shows all 7 true `personal_experience` comments were predicted as `reasoned_recommendation`; I stopped after one controlled training change so I could measure its effect clearly.
+The model still misses the overall accuracy and macro-F1 targets because seed 42 remains below both thresholds after increasing training to five epochs. A next step would be to collect and manually review more real comments, especially `personal_experience` examples, because the seed-2024 after-run confusion matrix shows all 7 true `personal_experience` comments were predicted as `reasoned_recommendation`; I stopped after one controlled training change so I could measure its effect clearly.
 
 **The gap between what I meant my labels to capture and what the model learned:** I intended `personal_experience` to capture recommendations centered on the writer's own feelings, motivation, or life impact, but the model often treated them as `reasoned_recommendation`. The confusion matrix shows it learned to recognize `title_only` much better after five epochs, but it still failed to separate personal experiences from general reasons for recommending a show.
 
